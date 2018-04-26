@@ -5,8 +5,7 @@ require_once '../lib/Repository.php';
  */
   class LoginRepository extends Repository
   {
-<<<<<<< HEAD
-=======
+
     protected $tableName = 'users';
     protected $tableId = 'uid';
     protected $order = '';
@@ -25,12 +24,18 @@ require_once '../lib/Repository.php';
     }
 
     public function login($email, $pwd) {
-      $query = "SELECT passwort FROM users WHERE email=?";
+      $query = "SELECT * FROM users WHERE email=?";
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('s', $email);
+      $statement->execute();
       $result = $statement->get_result();
-      return $result;
+      $user = $result->fetch_object();
+      if($user->passwort == $pwd) {
+        return true;
+      } else {
+        return false;
+      }
+
     }
->>>>>>> f9ec732f8770f3b4edc08c90ca48d33d1a7dd83c
   }
 ?>

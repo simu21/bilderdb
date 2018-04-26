@@ -3,9 +3,6 @@
    * Registratons-Formular
    * Das Formular wird mithilfe des Formulargenerators erstellt.
    */
-<<<<<<< HEAD
- 
-=======
   $lblClass = "col-md-2";
   $eltClass = "col-md-4";
   $btnClass = "btn btn-success";
@@ -20,5 +17,4 @@
   echo $button->label('registrieren')->name('send')->type('submit')->class('btn-success');
   echo $button->end();
   echo $form->end();
->>>>>>> f9ec732f8770f3b4edc08c90ca48d33d1a7dd83c
 ?>

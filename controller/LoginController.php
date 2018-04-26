@@ -28,8 +28,6 @@ require_once '../repository/LoginRepository.php';
       $view->heading = 'Registration';
       $view->display();
     }
-<<<<<<< HEAD
-=======
 
       public function myProfile()
       {
@@ -81,9 +79,11 @@ require_once '../repository/LoginRepository.php';
       if(!$result){
         header('Location: '.$GLOBALS['appurl'].'/login?loginsuccess=false');
       } else {
-       header('Location: '.$GLOBALS['appurl'].'/login/myProfile?loginsuccess=true');
+        session_start();
+        $_SESSION['uid'] = $user->uid;
+        $_SESSION['username'] = $user->username;
+       header('Location: '.$GLOBALS['appurl'].'/login/myProfile');
       }
     }
->>>>>>> f9ec732f8770f3b4edc08c90ca48d33d1a7dd83c
 }
 ?>

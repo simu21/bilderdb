@@ -10,13 +10,9 @@
  */
 
   // fix schf: approot für url
-<<<<<<< HEAD
-  $GLOBALS['appurl'] = '/bilderdb/public';
-  $GLOBALS['numAppurlFragments'] = 2;
-=======
+
   $GLOBALS['appurl'] = '/m151/bilderdb/public';
   $GLOBALS['numAppurlFragments'] = 3;
->>>>>>> f9ec732f8770f3b4edc08c90ca48d33d1a7dd83c
 
   require_once '../lib/Dispatcher.php';
   require_once '../lib/formbuilder/FormBuilder.php';
