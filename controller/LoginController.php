@@ -33,7 +33,7 @@ require_once '../repository/LoginRepository.php';
       {
           $view = new View('login_myProfile');
           $view->title = 'Bilder-DB';
-          $view->heading = 'Registration';
+          $view->heading = 'my Profile';
           $view->display();
       }
 
