@@ -12,7 +12,7 @@ require_once '../lib/Repository.php';
   	//EIn Benutzer in die Datenbank eintragen per SQL query
   	public function create($email, $username, $passwort)
     {
-      $query = "INSERT INTO $this->tableName (email, username, passwort) VALUES (?,?,?)";
+      $query = "INSERT INTO $this->tableName (email, benutzername, passwort) VALUES (?,?,?)";
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('sss', $email, $username, $passwort);
 
@@ -30,7 +30,7 @@ require_once '../lib/Repository.php';
       $statement->execute();
       $result = $statement->get_result();
       $user = $result->fetch_object();
-      if($user->passwort == $pwd) {
+      if(password_verify($pwd, $user->passwort)) {
         return true;
       } else {
         return false;

@@ -13,7 +13,7 @@
 
   $GLOBALS['appurl'] = '/m151/bilderdb/public';
   $GLOBALS['numAppurlFragments'] = 3;
-
+  
   require_once '../lib/Dispatcher.php';
   require_once '../lib/formbuilder/FormBuilder.php';
   require_once '../lib/View.php';

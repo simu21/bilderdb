@@ -28,14 +28,11 @@
 			<!-- fix schf -->
             <li><a href="<?=$GLOBALS['appurl']?>/login">Login</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/login/registration">Registration</a></li>
-<<<<<<< HEAD
-=======
             <?php
                 if(isset($_SESSION['uid'])){
                     echo "<li><a href='".$GLOBALS['appurl']."/login/myProfile'>myProfile</a></li>";
                 }
             ?>
->>>>>>> f9ec732f8770f3b4edc08c90ca48d33d1a7dd83c
           </ul>
         </div><!--/.nav-collapse -->
       </div>

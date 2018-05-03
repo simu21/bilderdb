@@ -41,36 +41,19 @@ require_once '../repository/LoginRepository.php';
     //Ein Benutzer registrieren und werte an create (im repository) übergeben
     public function doCreate()
     {
-        if(isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['passwort2']) && isset($_POST['passwort2'])){
+        if(isset($_POST['email']) & isset($_POST['username']) & isset($_POST['passwort1']) & isset($_POST['passwort2'])){
+            $email = $_POST['email'];
             $username = $_POST['username'];
-            $regexuser = "/[a-zA-Z][a-zA-Z0-9]{6,16}/";
+            $passwort = $_POST['passwort1'];
 
-            if(!preg_match($regexuser ,$username)) {
-                header('Location: '.$GLOBALS['appurl'].'/login?loginsuccess=falseUsername');
-            }
-
-            $regexpwd = "/[a-zA-Z][a-zA-Z0-9]{6,16}/";
-            $passwort = $_POST['passwort'];
-            if(!preg_match($regexpwd, $passwort)) {
-
-            }
-        }
-
-
-
-
-
-        if($valid) {
+          $passwort = password_hash($passwort, PASSWORD_DEFAULT);
           $loginRepository = new LoginRepository();
           $loginRepository->create($email, $username, $passwort);
-          // Anfrage an die URI /entry weiterleiten (HTTP 302)
           header('Location: '.$GLOBALS['appurl'].'/login');
-        }
-        else {
-          header('Location: '.$GLOBALS['appurl'].'/login/registration');
-        }
+       } else {
+       header('Location: '.$GLOBALS['appurl'].'/login/registration');
+       }
     }
-
     public function doLogin() {
       $email = $_POST['email'];
       $pwd = $_POST['passwort'];
