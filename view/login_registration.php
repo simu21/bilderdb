@@ -1,20 +1,27 @@
-<?php
-  /**
-   * Registratons-Formular
-   * Das Formular wird mithilfe des Formulargenerators erstellt.
-   */
-  $lblClass = "col-md-2";
-  $eltClass = "col-md-4";
-  $btnClass = "btn btn-success";
-  $form = new Form($GLOBALS['appurl']."/login/doCreate");
-  $button = new ButtonBuilder();
-  $select = new SelectBuilder();
-  echo $form->input()->label('E-Mail')->name('email')->type('email')->lblClass($lblClass)->eltClass($eltClass);
-  echo $form->input()->label('Username')->name('username')->type('text')->lblClass($lblClass)->eltClass($eltClass);
-  echo $form->input()->label('Passwort')->name('passwort1')->type('text')->lblClass($lblClass)->eltClass($eltClass);
-  echo $form->input()->label('Passwort wiederholen')->name('passwort2')->type('password')->lblClass($lblClass)->eltClass($eltClass);
-  echo $button->start($lblClass, $eltClass);
-  echo $button->label('registrieren')->name('send')->type('submit')->class('btn-success');
-  echo $button->end();
-  echo $form->end();
-?>
+<div class="register_form_div">
+ <form method='post' action='<?=$GLOBALS['appurl']?>/login/doCreate'>
+
+
+   <label for='email' class='col-md-2'>email</label>
+
+     <input type='email' name='email' class='form-control' onblur='this.placeholder="email"' onfocus="this.placeholder=''" placeholder='email'/>
+
+
+   <label for='username' class='col-md-2'>username</label>
+
+     <input type='text' name='username' class='form-control' onblur='this.placeholder="username"' onfocus="this.placeholder=''" placeholder='username' pattern='[a-z]'/>
+
+
+   <label for='passwort1' class='col-md-2'>passwort</label>
+
+     <input type='password' name='passwort1' class='form-control' onblur='this.placeholder="passwort"' onfocus="this.placeholder=''" placeholder='passwort' pattern='[a-z]'/>
+
+
+   <label for='passwort2' class='col-md-2'>passwort wiederholen</label>
+
+     <input type='password' name='passwort2' class='form-control' onblur='this.placeholder="passwort wiederholen"' onfocus="this.placeholder=''" placeholder='passwort wiederholen' pattern='[a-z]'/>
+
+
+   <button type="submit" class="btn btn-success">registrieren</button>
+ </form>
+</div>
