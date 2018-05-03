@@ -35,6 +35,11 @@
             ?>
           </ul>
         </div><!--/.nav-collapse -->
+          <?php
+          if(isset($_GET['registererror'])){
+              echo "<div class='alert alert-danger'></div>";
+          }
+          ?>
       </div>
     </nav>
     <div class="container">
