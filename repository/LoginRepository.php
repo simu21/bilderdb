@@ -28,6 +28,8 @@ require_once '../lib/Repository.php';
       $result = $statement->get_result();
       $user = $result->fetch_object();
       if(password_verify($pwd, $user->passwort)) {
+        $_SESSION['uid'] = $user->id;
+        $_SESSION['username'] = $user->benutzername;
         return true;
       } else {
         return false;

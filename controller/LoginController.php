@@ -63,11 +63,14 @@ require_once '../repository/LoginRepository.php';
       if(!$result){
         header('Location: '.$GLOBALS['appurl'].'/login?loginsuccess=false');
       } else {
-        session_start();
-        $_SESSION['uid'] = $user->uid;
-        $_SESSION['username'] = $user->username;
        header('Location: '.$GLOBALS['appurl'].'/login/myProfile');
       }
+    }
+
+    public function logout() {
+        unset($_SESSION);
+        session_destroy();
+        header('Location: '.$GLOBALS['appurl'].'/login');
     }
 }
 ?>
